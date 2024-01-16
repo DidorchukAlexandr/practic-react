@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { getPostById } from "shared/styles/api/posts";
+import styles from "./single-post-page.module.scss";
 
 const SinglePostPage = () => {
     const [post, setPost] = useState({});
@@ -31,7 +32,7 @@ const SinglePostPage = () => {
     return (
         <div className="container">
             <button onClick={goBack}>Go back</button>
-            <h1 className="page-title">{post.title}</h1>
+            <h1 className={styles.title}>{post.title}</h1>
             <p>{post.body}</p>
             <Link state={{from}} to="comments">Comments</Link>
             <Outlet />

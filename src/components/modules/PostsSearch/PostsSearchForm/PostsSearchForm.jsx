@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import styles from "./posts-search-form.module.scss"
 class PostsSearchForm extends Component {
     state = {
     search: ""
@@ -16,7 +16,7 @@ class PostsSearchForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { onSubmit } = this.props;
-        onSubmit({ ...this.sate });
+        onSubmit({ ...this.state });
         this.reset();
     }
     
@@ -31,14 +31,16 @@ class PostsSearchForm extends Component {
         const { search } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input name='search'
+            <form  onSubmit={this.handleSubmit}>
+                <input
+                    className={styles.input}
+                    name='search'
                     value={search}
                     onChange={this.handleChange}
                     placeholder='Search post' 
                     required
                 /> 
-                <button type='submit'>Search</button>
+                <button className={styles.button} type='submit'>Search</button>
             </form>
         )
     }

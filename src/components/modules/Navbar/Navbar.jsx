@@ -3,8 +3,8 @@ import NavbarMenu from "./navbarMenu/NavbarMenu";
 import styles from "./navbar.module.scss";
 const Navbar = () => {
     return (
-        <div className={styles.navbar}>
-            <div className={styles.container}>
+        <div className="container">
+            <div className={styles.navbar}>
                 <div className={styles.navbarRow}>
                     <Link to="/">Logo</Link>
                     <NavbarMenu />

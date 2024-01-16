@@ -73,7 +73,7 @@ const PostsSearch = () => {
                 {error && <p className={styles.error}>{error}</p>}
                 <ul className={styles.list}>{elements}</ul>
                 {status === "success" && !items.length && <p>Nothing found</p>}
-                {Boolean(items.length) && <button onClick={loadMore} type="button">Load more</button>}
+                {Boolean(items.length) && <button onClick={loadMore} className={styles.button} type="button">Load more</button>}
             </>
     )
 

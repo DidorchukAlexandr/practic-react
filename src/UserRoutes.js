@@ -13,13 +13,13 @@ const UserRoutes = () => {
   return (
     <Suspense fallback={<p>...Load page</p>}>
       <Routes>
-        <Route path="/" element={HomePage} />
-        <Route path="/posts" element={PostPage} />
-        <Route path="/posts/:id" element={SinglePostPage}>
-          <Route path="comments" element={CommentsPage} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/posts" element={<PostPage />} />
+        <Route path="/posts/:id" element={<SinglePostPage />}>
+          <Route path="comments" element={<CommentsPage />} />
         </Route>
 
-        <Route path="*" element={NotFoundPage} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );
