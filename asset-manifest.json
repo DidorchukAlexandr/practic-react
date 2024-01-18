@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/practic-react/static/css/main.c5d991e8.css",
+    "main.js": "/practic-react/static/js/main.3ba4357e.js",
+    "static/js/333.8cfd979f.chunk.js": "/practic-react/static/js/333.8cfd979f.chunk.js",
+    "static/css/605.7e174e18.chunk.css": "/practic-react/static/css/605.7e174e18.chunk.css",
+    "static/js/605.6f518aae.chunk.js": "/practic-react/static/js/605.6f518aae.chunk.js",
+    "static/css/312.e731ec6f.chunk.css": "/practic-react/static/css/312.e731ec6f.chunk.css",
+    "static/js/312.10377457.chunk.js": "/practic-react/static/js/312.10377457.chunk.js",
+    "static/css/46.f18f10d1.chunk.css": "/practic-react/static/css/46.f18f10d1.chunk.css",
+    "static/js/46.53e77b55.chunk.js": "/practic-react/static/js/46.53e77b55.chunk.js",
+    "static/css/645.3de6fd66.chunk.css": "/practic-react/static/css/645.3de6fd66.chunk.css",
+    "static/js/645.a30ba6ba.chunk.js": "/practic-react/static/js/645.a30ba6ba.chunk.js",
+    "static/css/599.468592ab.chunk.css": "/practic-react/static/css/599.468592ab.chunk.css",
+    "static/js/599.c0a862ec.chunk.js": "/practic-react/static/js/599.c0a862ec.chunk.js",
+    "static/css/72.832fd703.chunk.css": "/practic-react/static/css/72.832fd703.chunk.css",
+    "static/js/72.d17b9291.chunk.js": "/practic-react/static/js/72.d17b9291.chunk.js",
+    "static/js/162.226cacd8.chunk.js": "/practic-react/static/js/162.226cacd8.chunk.js",
+    "index.html": "/practic-react/index.html",
+    "main.c5d991e8.css.map": "/practic-react/static/css/main.c5d991e8.css.map",
+    "main.3ba4357e.js.map": "/practic-react/static/js/main.3ba4357e.js.map",
+    "333.8cfd979f.chunk.js.map": "/practic-react/static/js/333.8cfd979f.chunk.js.map",
+    "605.7e174e18.chunk.css.map": "/practic-react/static/css/605.7e174e18.chunk.css.map",
+    "605.6f518aae.chunk.js.map": "/practic-react/static/js/605.6f518aae.chunk.js.map",
+    "312.e731ec6f.chunk.css.map": "/practic-react/static/css/312.e731ec6f.chunk.css.map",
+    "312.10377457.chunk.js.map": "/practic-react/static/js/312.10377457.chunk.js.map",
+    "46.f18f10d1.chunk.css.map": "/practic-react/static/css/46.f18f10d1.chunk.css.map",
+    "46.53e77b55.chunk.js.map": "/practic-react/static/js/46.53e77b55.chunk.js.map",
+    "645.3de6fd66.chunk.css.map": "/practic-react/static/css/645.3de6fd66.chunk.css.map",
+    "645.a30ba6ba.chunk.js.map": "/practic-react/static/js/645.a30ba6ba.chunk.js.map",
+    "599.468592ab.chunk.css.map": "/practic-react/static/css/599.468592ab.chunk.css.map",
+    "599.c0a862ec.chunk.js.map": "/practic-react/static/js/599.c0a862ec.chunk.js.map",
+    "72.832fd703.chunk.css.map": "/practic-react/static/css/72.832fd703.chunk.css.map",
+    "72.d17b9291.chunk.js.map": "/practic-react/static/js/72.d17b9291.chunk.js.map",
+    "162.226cacd8.chunk.js.map": "/practic-react/static/js/162.226cacd8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5d991e8.css",
+    "static/js/main.3ba4357e.js"
+  ]
+}
