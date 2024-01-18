@@ -25,7 +25,7 @@ const SinglePostPage = () => {
         }
         fetchPost();
 
-    }, [])
+    }, [id])
 
     const goBack = () => navigate(from);
 
