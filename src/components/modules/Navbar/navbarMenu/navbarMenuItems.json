@@ -11,7 +11,12 @@
     },
     {
         "id": "3",
-        "text": "Contacts page",
-        "link": "/contacts"
+        "text": "My books page",
+        "link": "/my-books"
+    },
+    {
+        "id": "4",
+        "text": "My favorite books page",
+        "link": "/my-favorite-books"
     }
 ]

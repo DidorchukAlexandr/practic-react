@@ -8,6 +8,10 @@ const PostPage = lazy(() => import('pages/PostsPage/PostPage'));
 const SinglePostPage = lazy(() =>
   import('pages/SinglePostPage/SinglePostPage')
 );
+const MyFavoriteBooksPage = lazy(() =>
+  import('pages/HomePage/MyFavoriteBooksPage/MyFavoriteBooksPage')
+);
+const MyBooksPage = lazy(() => import('pages/MyBooksPage/MyBooksPage'));
 
 const UserRoutes = () => {
   return (
@@ -18,7 +22,8 @@ const UserRoutes = () => {
         <Route path="/posts/:id" element={<SinglePostPage />}>
           <Route path="comments" element={<CommentsPage />} />
         </Route>
-
+        <Route path="/my-books" element={<MyBooksPage />} />
+        <Route path="/my-favorite-books" element={<MyFavoriteBooksPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
