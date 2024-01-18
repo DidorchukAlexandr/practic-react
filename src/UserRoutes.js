@@ -9,7 +9,7 @@ const SinglePostPage = lazy(() =>
   import('pages/SinglePostPage/SinglePostPage')
 );
 const MyFavoriteBooksPage = lazy(() =>
-  import('pages/HomePage/MyFavoriteBooksPage/MyFavoriteBooksPage')
+  import('pages/MyFavoriteBooksPage/MyFavoriteBooksPage')
 );
 const MyBooksPage = lazy(() => import('pages/MyBooksPage/MyBooksPage'));
 

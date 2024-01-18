@@ -1,24 +1,23 @@
-import { useState, useRef, useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import MyBooksBlock from "./MyBooksBlock/MyBooksBlock";
 import MyBooksForm from "./MyBooksForm/MyBooksForm";
 import MyBooksList from "./MyBooksList/MyBooksList";
-import { getInitialValue } from "shared/utils/localStorage";
 import styles from "./my-books.module.scss";
-import { nanoid } from "nanoid";
+import { getBooks, getFilteredBooks } from "../../../redux/books/books-selectors";
+import { getFilter } from "../../../redux/filter/filter-selectors";
+import { setFilter } from "../../../redux/filter/filter-actions";
+import { addBook, deleteBook } from "../../../redux/books/books-actions";
+
 
 const MyBooks = () => {
-    const [books, setBooks] = useState(() => getInitialValue("my-books", []));
-    const [filter, setFilter] = useState(false);
+    const books = useSelector(getBooks);
+    const filteredBooks = useSelector(getFilteredBooks);
+    const filter = useSelector(getFilter);
 
-    const firstRender = useRef(true);
 
-    useEffect(() => {
-        if (firstRender.current) {
-            firstRender.current = false;
-            return;
-        }
-        localStorage.setItem("my-books", JSON.stringify(books))
-    }, [books])
+    const dispatch = useDispatch();
+    
 
     const isDublicate = ({title, author}) => {
         const normalizedTitle = title.toLowerCase();
@@ -30,41 +29,23 @@ const MyBooks = () => {
         return Boolean(dublicate);
     }
 
-    const handleFilter = ({ target }) => setFilter(target.value);
+    const handleFilter = ({ target }) => {
+        const action = setFilter(target.value);
+        dispatch(action);
+    }
     
     const onAddBook = ({ title, author, favorite }) => {
         if (isDublicate({ title, author })) {
             return alert(`${title} - ${author} is already exist`);
         }
-        setBooks(prevBooks => {
-            const newBook = {
-                id: nanoid(),
-                title,
-                author,
-                favorite,
-
-            }
-            return [...prevBooks, newBook]
-        })
+        const action = addBook({ title, author, favorite });
+        dispatch(action);
     }
 
     const onDeleteBook = (id) => {
-        setBooks(prevBooks => prevBooks.filter(item => item.id !==id))
+        const action = deleteBook(id);
+        dispatch(action);
     }
-
-    const getFilteredBooks = () => {
-        if (!filter) {
-            return books;
-        }
-        const normalizedFilter = filter.toLowerCase();
-        const result = books.filter(({ title, author }) => {
-            return (title.toLowerCase().includes(normalizedFilter) || author.toLowerCase().includes(normalizedFilter))
-        })
-
-        return result;
-    }
-
-    const items = getFilteredBooks();
 
 
     return (
@@ -75,8 +56,8 @@ const MyBooks = () => {
                     <MyBooksForm onSubmit={onAddBook} />
                 </MyBooksBlock>
                 <MyBooksBlock title="Book list">
-                    <input name="filter" onChange={handleFilter} className={styles.textField} placeholder="enter book title or author"/>
-                    <MyBooksList items={items} onDeleteBook={onDeleteBook} />
+                    <input value={filter} name="filter" onChange={handleFilter} className={styles.textField} placeholder="enter book title or author"/>
+                    <MyBooksList items={filteredBooks} onDeleteBook={onDeleteBook} />
                 </MyBooksBlock>
             </div>
         </div>

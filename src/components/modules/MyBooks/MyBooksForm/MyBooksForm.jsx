@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import initialState from "./initialState";
 import styles from "./my-books-form.module.scss";
 
-const MyBooksForm = () => {
+const MyBooksForm = ({onSubmit}) => {
     const [state, setState] = useState({ ...initialState });
 
     const titleRef = useRef(false);
@@ -23,7 +23,7 @@ const MyBooksForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onsubmit({ ...state });
+        onSubmit({ ...state });
         setState({ ...initialState });
     }
 
@@ -41,7 +41,7 @@ const MyBooksForm = () => {
             </div>
             <div className={styles.formGroup}>
                 <label>Favorite</label>
-                <input checked={favorite} name="favorite" onChange={handleChange} className={styles.checkbox} />
+                <input checked={favorite} name="favorite" onChange={handleChange} className={styles.checkbox} type="checkbox" />
             </div>
             <button type="submit">Add book</button>
     </form>

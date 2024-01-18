@@ -2,23 +2,20 @@ import { BrowserRouter } from "react-router-dom";
 import "./shared/styles/styles.scss";
 import UserRoutes from "UserRoutes";
 import Navbar from "components/modules/Navbar/Navbar";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 
-
-
-// import Vote from "./modules/Vote/Vote";
-//import Timer from "./modules/Timer/Timer"; 
-// import PostsSearch from "./modules/PostsSearch/PostsSearch";
-// import Posts from "./modules/PostsSearch/Posts/Posts";
-
-
-
-export const App = () => {
+ const App = () => {
   return (
-    <BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
       <Navbar />
       <UserRoutes />
     </BrowserRouter>
+    </Provider>
    
-  );
-};
+  )
+}
+
+export default App;
