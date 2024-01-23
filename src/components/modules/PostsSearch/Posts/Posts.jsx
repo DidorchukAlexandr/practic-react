@@ -1,4 +1,4 @@
-import { getPosts } from "shared/styles/api/posts";
+import { getPosts } from "shared/api/posts";
 
 import styles from './posts.module.scss';
 import { useEffect, useState } from "react";

@@ -4,47 +4,37 @@ import MyBooksBlock from "./MyBooksBlock/MyBooksBlock";
 import MyBooksForm from "./MyBooksForm/MyBooksForm";
 import MyBooksList from "./MyBooksList/MyBooksList";
 import styles from "./my-books.module.scss";
-import { getBooks, getFilteredBooks } from "../../../redux/books/books-selectors";
+import { getFilteredBooks } from "../../../redux/books/books-selectors";
 import { getFilter } from "../../../redux/filter/filter-selectors";
 import { setFilter } from "../../../redux/filter/filter-actions";
-import { addBook, deleteBook } from "../../../redux/books/books-actions";
+import { addBook, deleteBook, fetchBooks } from "../../../redux/books/books-operations";
+import { useEffect } from "react";
+
 
 
 const MyBooks = () => {
-    const books = useSelector(getBooks);
+   
     const filteredBooks = useSelector(getFilteredBooks);
     const filter = useSelector(getFilter);
 
 
     const dispatch = useDispatch();
     
-
-    const isDublicate = ({title, author}) => {
-        const normalizedTitle = title.toLowerCase();
-        const normalizedAuthor = author.toLowerCase();
-        const dublicate = books.find(item => {
-            return (item.title.toLowerCase() === normalizedTitle && item.author.toLowerCase() === normalizedAuthor)
-        });
-
-        return Boolean(dublicate);
-    }
+    useEffect(() => {
+        dispatch(fetchBooks());
+}, [dispatch])
 
     const handleFilter = ({ target }) => {
-        const action = setFilter(target.value);
-        dispatch(action);
+       dispatch(setFilter(target.value));  
     }
     
     const onAddBook = ({ title, author, favorite }) => {
-        if (isDublicate({ title, author })) {
-            return alert(`${title} - ${author} is already exist`);
-        }
-        const action = addBook({ title, author, favorite });
-        dispatch(action);
+        
+        dispatch(addBook({ title, author, favorite }));
     }
 
     const onDeleteBook = (id) => {
-        const action = deleteBook(id);
-        dispatch(action);
+         dispatch(deleteBook(id));
     }
 
 

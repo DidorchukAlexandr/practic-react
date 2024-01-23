@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPostComments } from "shared/styles/api/posts";
+import { getPostComments } from "shared/api/posts";
 
 const CommentsPage = () => {
     const [comments, setComments] = useState([]);

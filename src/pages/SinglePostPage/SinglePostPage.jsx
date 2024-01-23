@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { getPostById } from "shared/styles/api/posts";
+import { getPostById } from "shared/api/posts";
 import styles from "./single-post-page.module.scss";
 
 const SinglePostPage = () => {

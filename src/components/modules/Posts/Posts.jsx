@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts } from "shared/styles/api/posts";
+import { getPosts } from "shared/api/posts";
 import PostList from "components/PostList/PostList";
 import styles from "./posts.module.scss";
 

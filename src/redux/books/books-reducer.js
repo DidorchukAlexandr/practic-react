@@ -1,14 +1,50 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { addBook, deleteBook } from './books-actions';
+import * as actions from './books-actions';
 
-const booksReducer = createReducer([], builder => {
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+};
+
+const booksReducer = createReducer(initialState, builder => {
   builder
-    .addCase(addBook, (state, { payload }) => {
-      state.push(payload);
+    .addCase(actions.fetchBooksPending, state => {
+      state.loading = true;
+      state.error = null;
     })
-    .addCase(deleteBook, (state, { payload }) => {
-      return state.filter(item => item.id !== payload);
+    .addCase(actions.fetchBooksFulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.items = payload;
+    })
+    .addCase(actions.fetchBooksRejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    })
+    .addCase(actions.deleteBookPending, state => {
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(actions.deleteBookFulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.items = state.items.filter(({ id }) => id !== payload);
+    })
+    .addCase(actions.deleteBookRejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    })
+    .addCase(actions.addBookPending, state => {
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(actions.addBookFulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.items.push(payload);
+    })
+    .addCase(actions.addBookRejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
     });
 });
 

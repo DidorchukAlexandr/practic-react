@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Modal from "../../Modal/Modal";
 import PostsSearchForm from "./PostsSearchForm/PostsSearchForm";
-import { searchPosts } from "shared/styles/api/posts";
+import { searchPosts } from "shared/api/posts";
 import styles from "./posts-search.module.scss";
 
 
