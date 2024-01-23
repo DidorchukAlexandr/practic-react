@@ -1,19 +1,18 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import * as api from '../../shared/api/books';
 
-import * as actions from './books-actions';
-
-export const fetchBooks = () => {
-  const func = async dispatch => {
+export const fetchBooks = createAsyncThunk(
+  'books/fetch',
+  async (_, thunkAPI) => {
     try {
-      dispatch(actions.fetchBooksPending());
       const { data } = await api.getAllBooks();
-      dispatch(actions.fetchBooksFulfilled(data));
+      return data;
     } catch ({ response }) {
-      dispatch(actions.fetchBooksRejected(response));
+      return thunkAPI.rejectWithValue(response);
     }
-  };
-  return func;
-};
+  }
+);
 
 const isDublicate = (books, { title, author }) => {
   const normalizedTitle = title.toLowerCase();
@@ -28,32 +27,35 @@ const isDublicate = (books, { title, author }) => {
   return Boolean(dublicate);
 };
 
-export const addBook = data => {
-  const func = async (dispatch, getState) => {
+export const addBook = createAsyncThunk(
+  'books/add',
+  async (data, { rejectWithValue }) => {
     try {
+      const { data: result } = await api.addBook(data);
+      return result;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  },
+  {
+    condition: (data, { getState }) => {
       const { books } = getState();
       if (isDublicate(books.items, data)) {
-        return alert(`${data.title} - ${data.author} is already exist`);
+        alert(`${data.tutle} - ${data.author} is already exist`);
+        return false;
       }
-      dispatch(actions.addBookPending());
-      const { data: result } = await api.addBook(data);
-      dispatch(actions.addBookFulfilled(result));
-    } catch ({ response }) {
-      dispatch(actions.addBookRejected(response));
-    }
-  };
-  return func;
-};
+    },
+  }
+);
 
-export const deleteBook = id => {
-  const func = async dispatch => {
+export const deleteBook = createAsyncThunk(
+  'books/delete',
+  async (id, { rejectWithValue }) => {
     try {
-      dispatch(actions.deleteBookPending());
       await api.deleteBook(id);
-      dispatch(actions.deleteBookFulfilled(id));
+      return id;
     } catch ({ response }) {
-      dispatch(actions.deleteBookRejected(response));
+      return rejectWithValue(response);
     }
-  };
-  return func;
-};
+  }
+);
