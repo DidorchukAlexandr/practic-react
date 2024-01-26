@@ -4,7 +4,7 @@ import { isUserLogin } from "../../../redux/auth/auth-selectors";
 
 import NavbarUser from "./NavbarUser/NavbarUser";
 import NavbarAuth from "./NavbarAuth/NavbarAuth";
-import NavbarMenu from "./NavbarMenu/NavbarMenu";
+import NavbarMenu from "../../modules/Navbar/NavbarMenu/NavbarMenu";
 import styles from "./navbar.module.scss";
 const Navbar = () => {
     const isLogin = useSelector(isUserLogin);
