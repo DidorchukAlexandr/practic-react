@@ -4,7 +4,7 @@ import styles from './login-page.module.scss';
 import LoginForm from "components/modules/LoginForm/LoginForm";
 
 const LoginPage = () => {
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
 
     const onLogin = (data) => {
         dispatch(login(data));
