@@ -10,12 +10,14 @@ const RegisterForm = ({ onSubmit }) => {
     const { name, email, password } = state;
 
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.wrapper}>
+            <form onSubmit={handleSubmit} className={styles.form}>
              <TextField value={name} onChange={handleChange} {...fields.name} />
             <TextField value={email} onChange={handleChange} {...fields.email} />
             <TextField value={password} onChange={handleChange} {...fields.password} />
             <Button>Register</Button>
         </form> 
+        </div>
 )
 }
 

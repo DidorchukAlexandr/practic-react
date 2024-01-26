@@ -11,11 +11,13 @@ const LoginForm = ({ onSubmit }) => {
     const { email, password } = state;
 
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.wrapper}>
+            <form onSubmit={handleSubmit} className={styles.form}>
             <TextField value={email} onChange={handleChange} {...fields.email} />
             <TextField value={password} onChange={handleChange} {...fields.password} />
             <Button>Login</Button>
         </form> 
+        </div>
     )
 }
 
