@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 
 import { isUserLogin } from "../../../../redux/auth/auth-selectors";
 
-import items from "./navbarMenuItems.json";
-import styles from "./navbar-menu.module.scss"
-const NavbarMenu = () => {
+import items from "./navbarItems.json";
+import styles from "./navbar-menu-items.module.scss"
+const NavbarMenuItems = () => {
     const isLogin = useSelector(isUserLogin);
     const menuItems = !isLogin ? items.filter(item => !item.private) : items;
 
@@ -13,7 +13,7 @@ const NavbarMenu = () => {
     const elements = menuItems.map(({ id, link, text }) => {
         return (
             <li key={id}>
-                <NavLink to={link} className={styles.link}>{text}</NavLink>
+                <NavLink to={link} className={styles.lin}>{text}</NavLink>
             </li>
         )
     });
@@ -21,4 +21,4 @@ const NavbarMenu = () => {
         <ul className={styles.menu}>{elements}</ul>
     )
 }
-export default NavbarMenu;
+export default NavbarMenuItems;
