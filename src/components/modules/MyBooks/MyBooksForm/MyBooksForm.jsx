@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import initialState from "./initialState";
 import styles from "./my-books-form.module.scss";
-
+import Button from "components/Button/Button";
 const MyBooksForm = ({onSubmit}) => {
     const [state, setState] = useState({ ...initialState });
 
@@ -43,7 +43,7 @@ const MyBooksForm = ({onSubmit}) => {
                 <label>Favorite</label>
                 <input checked={favorite} name="favorite" onChange={handleChange} className={styles.checkbox} type="checkbox" />
             </div>
-            <button type="submit">Add book</button>
+            <Button type="submit">Add book</Button>
     </form>
 )
 }

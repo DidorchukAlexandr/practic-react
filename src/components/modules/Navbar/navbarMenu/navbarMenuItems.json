@@ -2,21 +2,25 @@
     {
         "id": "1",
         "text": "Home page",
-        "link": "/"
+        "link": "/",
+        "private": false
     },
     {
         "id": "2",
         "text": "Posts search page",
-        "link": "/posts"
+        "link": "/posts",
+        "private": false
     },
     {
         "id": "3",
         "text": "My books page",
-        "link": "/my-books"
+        "link": "/my-books",
+        "private": true
     },
     {
         "id": "4",
         "text": "My favorite books page",
-        "link": "/my-favorite-books"
+        "link": "/my-favorite-books",
+        "private": true
     }
 ]

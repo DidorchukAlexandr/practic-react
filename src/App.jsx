@@ -1,18 +1,23 @@
 import { BrowserRouter } from "react-router-dom";
-import "./shared/styles/styles.scss";
+import { PersistGate } from "redux-persist/integration/react";
+
 import UserRoutes from "UserRoutes";
 import Navbar from "components/modules/Navbar/Navbar";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-
-
+import AuthLayout from "components/modules/AuthLayout/AuthLayout";
+import { store, persistor } from "./redux/store";
+import "./shared/styles/styles.scss";
  const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <AuthLayout>
+           <BrowserRouter>
       <Navbar />
       <UserRoutes />
     </BrowserRouter>
+       </AuthLayout>
+      </PersistGate>
     </Provider>
    
   )
